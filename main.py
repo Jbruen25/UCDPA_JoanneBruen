@@ -15,25 +15,46 @@ print(request.text)
 
 import pandas as pd
 
-data=pd.read_csv("London.csv")
+London=pd.read_csv("London.csv")
 
-print(data)
+# Print the 1st 5 rows of the information
+print(London.head())
+
+# number of columns and rows
+print(London.shape)
 
 # Check individual values for missing values
-print(data.isna())
+print(London.isna())
 
 # Check each column for missing values
-print(data.isna().any())
+print(London.isna().any())
+
+# Counting the number of missing values
+print(London.isna().sum())
 
 # Import matplotlib.pyplot with alias plt
 import matplotlib.pyplot as plt
 
-
 # Bar plot of missing values by variables
-data.isna().sum().plot(kind="bar")
+London.isna().sum().plot(kind="bar")
 
 # Show plot
 plt.show()
+
+# Fill in the missing values with XXX
+London_filled = London.fillna(0)
+
+# print the columns
+print(London.columns)
+
+# print the index
+print(London.index)
+
+# setting a column as index
+London_ind = London.set_index("House Type")
+print(London_ind)
+
+
 
 
 
