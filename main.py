@@ -41,8 +41,11 @@ London.isna().sum().plot(kind="bar")
 # Show plot
 plt.show()
 
+#
+
 # Fill in the missing values with XXX
 London_filled = London.fillna(0)
+
 
 # print the columns
 print(London.columns)
@@ -53,6 +56,23 @@ print(London.index)
 # setting a column as index
 London_ind = London.set_index("House Type")
 print(London_ind)
+
+
+data=pd.read_csv("financials.csv")
+
+print(data)
+
+# import the matplotlib.pyplot submodule and name it plt
+import matplotlib.pyplot as plt
+
+# create a Figure and an Axes with plt.subplots
+fig, ax = plt.subplots()
+
+# Plot
+
+# call the show function to show the results
+plt.show()
+
 
 
 
