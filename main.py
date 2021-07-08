@@ -62,16 +62,39 @@ data=pd.read_csv("financials.csv")
 
 print(data)
 
+
+data=pd.read_csv("Loan payments data.csv")
+
+print(data)
+
+# Print the 1st 5 rows of the information
+print(data.head())
+
+# number of columns and rows
+print(data.shape)
+
 # import the matplotlib.pyplot submodule and name it plt
 import matplotlib.pyplot as plt
+
+data = pd.read_csv("Loan payments data.csv", index_col=3)
 
 # create a Figure and an Axes with plt.subplots
 fig, ax = plt.subplots()
 
-# Plot
+ax.bar(data.index, data["loan_status"])
+ax.set_xlabel('terms')
+ax.set_ylabel('loan_status')
 
-# call the show function to show the results
 plt.show()
+
+
+
+
+
+
+
+
+
 
 
 
