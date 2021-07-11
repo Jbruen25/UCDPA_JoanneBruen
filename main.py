@@ -152,6 +152,21 @@ ax.legend()
 
 plt.show()
 
+Supermarket=pd.read_csv("supermarket_sales - Sheet1.csv")
+
+print(Supermarket)
+
+# loops through income
+
+for income in data['Branch']:print(income['income'])
+
+
+
+
+
+
+
+
 
 
 
