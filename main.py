@@ -97,9 +97,12 @@ financial_data = financial[["Name", "Price/Earnings", "Dividend Yield", "EBITDA"
 
 print(financial_data.head())
 
+
 # filter for rows where the sector is Financials and the Earnings/share is greater than 10
 
 financial_Health_100 = financial[(financial["Earnings/Share"] > 10) & (financial["Sector"] == "Financials")]
+
+
 
 print(financial_Health_100)
 
@@ -112,6 +115,9 @@ financial_data = financial[["Name", "Price/Earnings", "Dividend Yield", "EBITDA"
 print(financial_data["Dividend Yield"].max())
 
 print(financial_data["Dividend Yield"].min())
+
+
+
 
 # import numpy as np and create custom IQR function
 
@@ -156,9 +162,51 @@ Supermarket=pd.read_csv("supermarket_sales - Sheet1.csv")
 
 print(Supermarket)
 
+# iterrows data
+itr = next(Supermarket.iterrows())[1]
+
+print(itr)
+
+Loan_payments=pd.read_csv("Loan payments data.csv")
+
+print(Loan_payments)
+
+# Create a dictorary
+
+trns = {'loan_status' : 'PAIDOFF', 'Principal' : '300'}
+
+print(trns['Principal'])
+
+# Create a list
+
+trnss = ['loan_status', 'Principal']
+
+print(trnss)
+
+Perth=pd.read_csv("Perth.csv")
+
+print(Perth.head())
+
+print(Perth.shape)
+
+Melbourne=pd.read_csv("Melbourne_housing_FULL.csv")
+
+print(Melbourne.head())
+
+print(Melbourne.shape)
+
+# inner join on suburb
+suburb_city = Melbourne.merge(Perth, on='Suburb')
+print(suburb_city.head(4))
+
+print(suburb_city.shape)
+
+
+
+
 # loops through income
 
-for income in data['Branch']:print(income['income'])
+
 
 
 
