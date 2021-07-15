@@ -12,11 +12,13 @@ print(request.status_code)
 print(request.text)
 
 # import Pandas as pd
-
 import pandas as pd
 
 # import numpy as np
 import numpy as np
+
+# Import matplotlib.pyplot with alias plt
+import matplotlib.pyplot as plt
 
 
 London=pd.read_csv("London.csv")
@@ -91,6 +93,11 @@ financial_sector_name = financial.sort_values(["Sector", "Name"], ascending=[Tru
 
 print(financial_sector_name.head())
 
+# Setting the name as the index
+name_financial = financial.set_index("Name")
+
+print(name_financial)
+
 # select the Name, Price/Earnings, Dividend Yield, EBITDA
 
 financial_data = financial[["Name", "Price/Earnings", "Dividend Yield", "EBITDA"]]
@@ -100,11 +107,11 @@ print(financial_data.head())
 
 # filter for rows where the sector is Financials and the Earnings/share is greater than 10
 
-financial_Health_100 = financial[(financial["Earnings/Share"] > 10) & (financial["Sector"] == "Financials")]
+financial_finance_100 = financial[(financial["Earnings/Share"] > 10) & (financial["Sector"] == "Financials")]
 
 
 
-print(financial_Health_100)
+print(financial_finance_100)
 
 # select the Name, Price/Earnings, Dividend Yield, EBITDA
 
