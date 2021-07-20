@@ -131,11 +131,28 @@ print(financial_data["Dividend Yield"].min())
 def iqr(column):
     return column.quantile(0.75) - column.quantile(.25)
 
-# Update to print IQR and median of Price/Earnings, Dividend Yield, EBITDA
+# Update to print IQR and median, min, max and mean of Price/Earnings, Dividend Yield, EBITDA
 print(financial_data[["Price/Earnings", "Dividend Yield", "EBITDA"]].agg([iqr, np.median, np.min, np.max, np.mean]))
 
-# Find if there are missing values
-print(financial.isnull().sum())
+
+# Check individual values for missing values
+print(financial.isna())
+
+# Check each column for missing values
+print(financial.isna().any())
+
+# Counting the number of missing values
+print(financial.isna().sum())
+
+# Import matplotlib.pyplot with alias plt
+import matplotlib.pyplot as plt
+
+# Bar plot of missing values by variables
+financial.isna().sum().plot(kind="bar")
+
+
+# Show plot
+plt.show()
 
 # Fill in the missing values with XXX
 financial_filled = financial.fillna(0)
